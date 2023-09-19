@@ -9,6 +9,10 @@
 // https://on.cypress.io/custom-commands
 // ***********************************************
 //
+// @ts-ignore
+Cypress.Commands.add('getByData', (selector) => {
+  return cy.get(`[data-cy=${selector}]`)
+})
 //
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
