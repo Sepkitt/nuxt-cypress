@@ -1,11 +1,11 @@
 <template>
-  <div class="modal-overlay" v-if="showModal">
-    <div class="modal">
-      <div class="modal-header">
+  <div data-cy="MODAL_OVERLAY" class="modal-overlay" v-if="showModal">
+    <div data-cy="MODAL" class="modal">
+      <div data-cy="MODAL_HEADER" class="modal-header">
         <h2>{{ title }}</h2>
-        <button @click="closeModal">X</button>
+        <button data-cy="MODAL_CLOSE" @click="closeModal">X</button>
       </div>
-      <div class="modal-body">
+      <div data-cy="MODAL_BODY" class="modal-body">
         <slot></slot>
       </div>
     </div>
