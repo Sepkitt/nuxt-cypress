@@ -1,0 +1,34 @@
+// Avoid using *-and-down where possible
+@use "sass:map";
+
+@import '~vuetify/src/styles/settings/_variables';
+$lg: '(min-width: #{map.get($grid-breakpoints, 'lg')}) and (max-width: #{map.get($grid-breakpoints, 'xl') - 0.02})';
+$xl: '(min-width: #{map.get($grid-breakpoints, 'xl')}) and (max-width: #{map.get($grid-breakpoints, 'xxl') - 0.02})';
+$bp: () !default;
+$bp: map.deep-merge(
+  (
+    'xs': 'only screen and (max-width: #{map.get($grid-breakpoints, 'sm') - 0.02})',
+    'sm': 'only screen and (min-width: #{map.get($grid-breakpoints, 'sm')}) and (max-width: #{map.get($grid-breakpoints, 'md') - 0.02})',
+    'md': 'only screen and (min-width: #{map.get($grid-breakpoints, 'md')}) and (max-width: #{map.get($grid-breakpoints, 'lg') - 0.02})',
+    'lg': 'only screen and (min-width: #{map.get($grid-breakpoints, 'lg')}) and (max-width: #{map.get($grid-breakpoints, 'xl') - 0.02})',
+    'xl': 'only screen and (min-width: #{map.get($grid-breakpoints, 'xl')}) and (max-width: #{map.get($grid-breakpoints, 'xxl') - 0.02})',
+    'xxl': 'only screen and (min-width: #{map.get($grid-breakpoints, 'xxl')})',
+    'sm-and-up': '(min-width: #{map.get($grid-breakpoints, 'sm')})',
+    'md-and-up': '(min-width: #{map.get($grid-breakpoints, 'md')})',
+    'lg-and-up': '(min-width: #{map.get($grid-breakpoints, 'lg')})',
+    'xl-and-up': '(min-width: #{map.get($grid-breakpoints, 'xl')})',
+    'sm-and-down': '(max-width: #{map.get($grid-breakpoints, 'md') - 0.02})',
+    'md-and-down': '(max-width: #{map.get($grid-breakpoints, 'lg') - 0.02})',
+    'lg-and-down': '(max-width: #{map.get($grid-breakpoints, 'xl') - 0.02})',
+    'xl-and-down': '(max-width: #{map.get($grid-breakpoints, 'xxl') - 0.02})',
+    'lg_xm_ds': '#{$lg} and (min-height: 1156px ) and (max-height: #{calc(1280 - 0.02)}px)',
+    'lg_xm_fs': '#{$lg} and (min-height: 1280px)',
+    'xl_l_ds': '#{$xl} and (max-height: 907px)',
+    'xl_l_fs': '#{$xl} and ( #{calc(907 + 0.02)}px) and (max-height: 1175px)',
+    'xl_tv_ds': '#{$xl} and (min-height: 1176px ) and (max-height: #{calc(1349 - 0.02)}px)',
+    'xl_tv_fs': '#{$xl} and (min-height: 1350px)'
+
+  ),
+  $bp
+);
+
