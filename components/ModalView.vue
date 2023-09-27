@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Modal from './Modal';
+import Modal from './modal/Modal';
 
 export default {
   data() {
