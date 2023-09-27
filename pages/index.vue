@@ -27,9 +27,7 @@ const isShow = ref(false);
 const compNam = ref('')
 
 const getComponentName = (component) => {
-  const componentName = component === 'Modal' ? 'modal/ModalView' : component;
-  console.log({'Hi' : componentName})
-  return isShow.value ? defineAsyncComponent(() => import(`../components/${componentName}.vue`)) : null;
+  return isShow.value ? defineAsyncComponent(() => import(`../components/${component}.vue`)) : null;
 }
 
 function onClick(component) {
