@@ -1,7 +1,9 @@
 // `vite.config.cypress.component.ts`
+import path from 'path'
+import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
-export default {
+export default defineConfig( {
   plugins: [
     vue({
       template: {
@@ -11,4 +13,10 @@ export default {
       },
     }),
   ],
-}
+  resolve: {
+    alias: {
+      '@/': `${path.resolve(__dirname, 'src')}/`
+  }
+  },
+
+})
