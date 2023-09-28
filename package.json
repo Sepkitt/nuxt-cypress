@@ -16,7 +16,7 @@
         "@vitejs/plugin-vue": "^4.3.4",
         "sass": "^1.68.0",
         "ts-node": "5.0.1",
-        "vuetify": "^3.4.0-alpha.1",
+        "vuetify": "^3.3.15",
         "vite-plugin-vuetify": "^1.0.2",
         "helvatica-neue-lt": "^1.0.1",
         "@fontsource/roboto-mono": "^5.0.8",

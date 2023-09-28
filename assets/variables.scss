@@ -1,0 +1,34 @@
+// @import "~vuetify/src/styles/styles.sass";
+// $body-font-family: "Roboto Mono" !important;
+// $heading-font-family: "Roboto Mono" !important;
+// $snackbar-border-radius: 18px;
+$family: "Roboto Mono";
+
+@use "vuetify/settings" with (
+	$body-font-family: $family,
+	$heading-font-family: $family,
+  $snackbar-border-radius: 18px,
+	$button-disabled-overlay : '1',
+);
+// @each $heading, $style in $typography {
+//   $headings: map-merge(
+//   $headings,
+//   (
+//   $heading:
+//   map-merge(
+//   $style,
+//   (
+//   "font-family": $heading-font-family
+//   )
+//   )
+//   )
+//   );
+// }
+
+
+
+
+
+
+// $skeleton-loader-button-height : 70px;
+// $skeleton-loader-button-width	: 100px;

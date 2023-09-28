@@ -1,17 +1,19 @@
 <template>
   <div>
+   <div  v-if="!loggedIn">
     <h2 data-cy="FORM_HEADER">Login</h2>
     <form data-cy="FORM" @submit.prevent="submitForm">
       <div>
         <label data-cy="FORM_USERNAME_LABEL" for="username">Username:</label>
-        <input data-cy="FORM_USERNAME" type="text" id="username" v-model="username" required />
+        <v-text-field data-cy="FORM_USERNAME" type="text" id="username" v-model="username" required />
       </div>
       <div>
-        <label data-cy="FORM_PASSWORD_LABEL" for="password">Password:</label>
-        <input data-cy="FORM_PASSWORD" type="password" id="password" v-model="password" required />
+        <v-text-field data-cy="FORM_PASSWORD" type="password" id="password" v-model="password" required label="Password"
+          hint="Enter your password to access this website"></v-text-field>
       </div>
-      <button data-cy="FORM_SUBMIT" type="submit">Submit</button>
+      <v-btn color="secondary" data-cy="FORM_SUBMIT" type="submit">Submit</v-btn>
     </form>
+   </div>
     <p v-if="loggedIn">Welcome, {{ username }}!</p>
   </div>
 </template>

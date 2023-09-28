@@ -1,23 +1,23 @@
 <template>
-  <div id="app">
-    <v-container>
-      <v-row>
-        <v-col cols="12">
-          <div class="title">Select a component {{ compNam }}</div>
-        </v-col>
-        <v-col v-for="component in componentList" :key="component">
-          <v-row>
-            <v-col class="component-button">
-              <div class="title">{{ component }}</div>
-              <component :is="getComponentName(component)" v-if="isShow && component === compNam" />
-              <v-btn color="primary" @click="onClick(component)">{{ isShow && component === compNam === true ? 'Hide' :
-                'Show' }}</v-btn>
-            </v-col>
-          </v-row>
-        </v-col>
-      </v-row>
-    </v-container>
-  </div>
+  <v-app>
+  <!-- <Nav>
+  </Nav> -->
+    <v-row>
+      <v-col cols="12">
+        <div class="title">Select a component {{ compNam }}</div>
+      </v-col>
+      <v-col v-for="component in componentList" :key="component">
+        <v-row>
+          <v-col class="component-button">
+            <div class="title">{{ component }}</div>
+            <component :is="getComponentName(component)" v-if="isShow && component === compNam" />
+            <v-btn color="primary" @click="onClick(component)">{{ isShow && component === compNam === true ? 'Hide' :
+              'Show' }}</v-btn>
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
+  </v-app>
 </template>
 
 <script setup>
