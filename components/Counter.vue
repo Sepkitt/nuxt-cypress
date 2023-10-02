@@ -1,14 +1,26 @@
 <template>
- <v-container>
-    <v-row>
-      <v-col>
-        <h2>Counter</h2>
-        <p>Count: {{ count }}</p>
-        <v-btn @click="increment" color="primary">Increment</v-btn>
-        <v-btn @click="decrement" color="primary">Decrement</v-btn>
-      </v-col>
-    </v-row>
-  </v-container>
+  <v-row justify="center">
+    <v-col>
+      <v-card class="mx-auto" max-width="344" :color="'primary'">
+        <v-card-item>
+          <div>
+            <div class="text-overline mb-1">
+              Counter
+            </div>
+            <div class="text-h2 mb-1">
+              {{ count }}
+            </div>
+            <div class="text-caption">count</div>
+          </div>
+        </v-card-item>
+
+        <v-card-actions>
+          <v-btn @click="increment" >Increment</v-btn>
+          <v-btn @click="decrement" >Decrement</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-col>
+  </v-row>
 </template>
 
 <script>

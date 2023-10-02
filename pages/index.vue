@@ -1,22 +1,42 @@
 <template>
   <v-app>
-  <!-- <Nav>
-  </Nav> -->
-    <v-row>
+    <Nav :items="componentList">
+      <template #items>
+        <v-list-item @click="onClick(component)" v-for="component in componentList" prepend-icon="mdi-code-equal"
+          :title="component" :value="component"></v-list-item>
+      </template>
+      <template #content>
+        <v-container fill-height fluid>
+          <v-row justify="center" align="center ">
+            <v-col cols="12" v-for="component in componentList" :key="component">
+              <component :key="component.index" :is="getComponentName(component)"
+                v-if="isShow && component === compNam" />
+
+            </v-col>
+          </v-row>
+        </v-container>
+
+
+      </template>
+    </Nav>
+    <!-- <v-row>
       <v-col cols="12">
         <div class="title">Select a component {{ compNam }}</div>
       </v-col>
       <v-col v-for="component in componentList" :key="component">
-        <v-row>
-          <v-col class="component-button">
-            <div class="title">{{ component }}</div>
+        <v-row justify="center">
+          <v-col cols="12" class="component-button">
             <component :is="getComponentName(component)" v-if="isShow && component === compNam" />
+
+          </v-col>
+          <v-col cols="12">
+
             <v-btn color="primary" @click="onClick(component)">{{ isShow && component === compNam === true ? 'Hide' :
               'Show' }}</v-btn>
           </v-col>
         </v-row>
       </v-col>
-    </v-row>
+    </v-row> -->
   </v-app>
 </template>
 
