@@ -26,10 +26,12 @@
         "importHelpers": true,
         "allowSyntheticDefaultImports": true,
         "noImplicitAny": false,
-        "types": ["vite/client"]
+        "types": ["vite/client", "cypress"]
     },
     "vueCompilerOptions": {
         "skipTemplateCodegen": true
     },
-    "exclude": ["dist", "vendor", "node_modules", "cypress.config.ts", "tests/Cypress"]
+    "exclude": ["dist", "vendor", "node_modules", "cypress.config.ts", "tests/Cypress"],
+    "include": ["**/*.ts"]
+
 }
