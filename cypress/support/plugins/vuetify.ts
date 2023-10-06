@@ -2,16 +2,16 @@
 import { createVuetify, ThemeDefinition } from "vuetify";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
-import 'vuetify/styles'
-
 import { mdi } from "vuetify/iconsets/mdi";
 import "@fontsource/roboto-mono";
 import "helvatica-neue-lt/index.css";
 import "@mdi/font/css/materialdesignicons.css";
+import 'vuetify/styles';
 
 const darkTheme: ThemeDefinition = {
   dark: true,
   colors: {
+    // Your theme colors here
     text: "#707070",
     primary: "#6c63ff",
     accent: "#C0F1FF",
@@ -31,26 +31,17 @@ const darkTheme: ThemeDefinition = {
     change: '#B71C1C'
   }
 };
-// @ts-ignore
-export default defineNuxtPlugin((nuxtApp) => {
-  const vuetify = createVuetify({
-    components,
-    directives,
 
-    theme: {
-      defaultTheme: "darkTheme",
-      themes: {
-        darkTheme,
-      },
+const vuetify = createVuetify({
+  components,
+  directives,
+  theme: {
+    defaultTheme: "darkTheme",
+    themes: {
+      darkTheme,
     },
-    icons: {
-      defaultSet: "mdi",
-      sets: {
-        mdi,
-      },
-    },
-  });
-
-  nuxtApp.vueApp.use(vuetify);
+  },
+  icons: { defaultSet: 'mdi', sets: { mdi } },
 });
 
+export default vuetify;

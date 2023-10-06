@@ -7,20 +7,26 @@ describe('<Counter />', () => {
   });
 
 
-  it('should display the initial count', () => {
-    cy.contains('Count: 0'); // Check if the initial count is displayed as 0
+  it('displays the initial count value', () => {
+    // Verify that the initial count value is 0
+    cy.get('[data-cy=COUNTER_VALUE]').should('contain', '0');
   });
 
-  it('should increment the count', () => {
-    cy.contains('Count: 0'); // Ensure the initial count is 0
-    cy.get('button:contains("Increment")').click(); // Click the Increment button
-    cy.contains('Count: 1'); // Check if the count has incremented to 1
+  it('increments the count when the Increment button is clicked', () => {
+    // Click the Increment button
+    cy.get('[data-cy=COUNTER_INCREASE]').click();
+
+    // Verify that the count value has increased to 1
+    cy.get('[data-cy=COUNTER_VALUE]').should('contain', '1');
   });
 
-  it('should decrement the count', () => {
-    cy.contains('Count: 0'); // Ensure the initial count is 0
-    cy.get('button:contains("Decrement")').click(); // Click the Decrement button
-    cy.contains('Count: -1'); // Check if the count has decremented to -1
+  it('decrements the count when the Decrement button is clicked', () => {
+    // Click the Decrement button
+    cy.get('[data-cy=COUNTER_DECREASE]').click();
+
+    // Verify that the count value has decreased to -1
+    cy.get('[data-cy=COUNTER_VALUE]').should('contain', '-1');
   });
+
 
 })

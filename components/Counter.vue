@@ -1,26 +1,28 @@
 <template>
-  <v-row justify="center">
-    <v-col>
-      <v-card class="mx-auto" max-width="344" :color="'primary'">
-        <v-card-item>
-          <div>
-            <div class="text-overline mb-1">
-              Counter
+  <v-app id="app">
+    <v-row justify="center">
+      <v-col>
+        <v-card data-cy="COUNTER_CARD" class="mx-auto" max-width="344" :color="'primary'">
+          <v-card-item>
+            <div>
+              <div data-cy="COUNTER_TITLE" class="text-overline mb-1">
+                Counter
+              </div>
+              <div data-cy="COUNTER_VALUE" class="text-h2 mb-1">
+                {{ count }}
+              </div>
+              <div data-cy="COUNTER_CAPTION" class="text-caption">count</div>
             </div>
-            <div class="text-h2 mb-1">
-              {{ count }}
-            </div>
-            <div class="text-caption">count</div>
-          </div>
-        </v-card-item>
+          </v-card-item>
 
-        <v-card-actions>
-          <v-btn @click="increment" >Increment</v-btn>
-          <v-btn @click="decrement" >Decrement</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-col>
-  </v-row>
+          <v-card-actions>
+            <v-btn data-cy="COUNTER_INCREASE" @click="increment">Increment</v-btn>
+            <v-btn data-cy="COUNTER_DECREASE" @click="decrement">Decrement</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-app>
 </template>
 
 <script>

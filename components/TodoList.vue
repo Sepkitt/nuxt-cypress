@@ -4,11 +4,11 @@
       <v-row>
         <v-col>
           <h2 class="text-h3 text-center pl-5 my-3">Todos</h2>
-          <v-text-field v-model="newTask" @keyup.enter="addTask" placeholder="Add a new task" />
+          <v-text-field data-cy="TODO_ADD" v-model="newTask" @keyup.enter="addTask" placeholder="Add a new task" />
         </v-col>
         <v-col v-for="(task, index) in tasks" :key="index">
-          <v-checkbox :label="task.text" v-model="task.completed"></v-checkbox>
-          <button @cdivck="removeTask(index)">Remove</button>
+          <v-checkbox  data-cy="TODO_CHECKBOX" :label="task.text" v-model="task.completed"></v-checkbox>
+          <v-btn data-cy="TODO_REMOVE" @click="removeTask(index)">Remove</v-btn>
         </v-col>
       </v-row>
 

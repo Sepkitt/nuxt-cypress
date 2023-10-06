@@ -32,6 +32,6 @@
         "skipTemplateCodegen": true
     },
     "exclude": ["dist", "vendor", "node_modules", "cypress.config.ts", "tests/Cypress"],
-    "include": ["**/*.ts"]
+    "include": ["**/*.ts", "**/*.d.ts", "**/*.tsx", "**/*.vue", "plugins/vuetify.ts", "cypress/support/component.ts"],
 
 }
