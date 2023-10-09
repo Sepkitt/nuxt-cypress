@@ -1,8 +1,7 @@
 <template>
-  <v-app id="app">
-    <v-row justify="center">
+    <v-row justify="center" >
       <v-col>
-        <v-card data-cy="COUNTER_CARD" class="mx-auto" max-width="344" :color="'primary'">
+        <v-card data-cy="COUNTER_CARD" class="mx-auto" max-width="344" color="primary">
           <v-card-item>
             <div>
               <div data-cy="COUNTER_TITLE" class="text-overline mb-1">
@@ -12,6 +11,9 @@
                 {{ count }}
               </div>
               <div data-cy="COUNTER_CAPTION" class="text-caption">count</div>
+              <div v-if="count === 1">
+                hello buddy
+              </div>
             </div>
           </v-card-item>
 
@@ -22,7 +24,6 @@
         </v-card>
       </v-col>
     </v-row>
-  </v-app>
 </template>
 
 <script>

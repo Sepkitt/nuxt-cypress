@@ -1,6 +1,10 @@
-// OtherFile.js
-import { mount } from 'cypress/vue'
-import createCustomVuetify from './plugins/vuetify'; // Import the custom Vuetify configuration object
+import { createVuetify } from 'vuetify';
+import { mount } from "cypress/vue";
+import { VApp } from 'vuetify/components';
+import { h } from 'vue';
+import * as components from 'vuetify/components';
+import * as directives from 'vuetify/directives';
+import 'vuetify/styles';
 
 type MountParams = Parameters<typeof mount>
 type OptionsParam = MountParams[1]
@@ -17,18 +21,28 @@ declare global {
     }
   }
 }
-Cypress.Commands.add('mount', (component, options = {}) => {
-  // Setup options object
-  options.global = options.global || {}
-  options.global.plugins = options.global.plugins || []
+const vuetify = createVuetify({
+  components,
+  directives
+});
 
-
-  // Add router plugin
+Cypress.Commands.add('mount', (component: any, options = {}) => {
+  options = options || {};
+  options.global = options.global || {};
+  options.global.stubs = options.global.stubs || {};
+  options.global.stubs['transition'] = false;
+  options.global.components = options.global.components || {};
+  options.global.plugins = options.global.plugins || [];
   options.global.plugins.push({
     install(app) {
-      app.use(createCustomVuetify)
-    },
-  })
+      app.use(vuetify);
+    }
+  });
 
-  return mount(component, options)
-})
+  // Define a function slot for the component
+  const slot = {
+    default: () => h(component, options),
+  };
+
+  return mount(VApp, { slots: slot, global: options.global });
+});
