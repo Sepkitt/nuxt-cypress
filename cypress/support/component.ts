@@ -5,7 +5,7 @@ import { h } from 'vue';
 import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
 import 'vuetify/styles';
-
+import './commands'
 type MountParams = Parameters<typeof mount>
 type OptionsParam = MountParams[1]
 

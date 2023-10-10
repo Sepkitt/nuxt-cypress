@@ -4,7 +4,10 @@
     "scripts": {
         "dev": "nuxt dev",
         "cypress": "cypress open",
-        "prettier": "prettier --check ."
+        "prettier": "prettier --check .",
+        "test:component": "cypress run --quiet --component"
+
+        
     },
     "devDependencies": {
         "cypress": "^13.2.0",
