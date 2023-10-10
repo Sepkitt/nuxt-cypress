@@ -1,5 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import vuetify from "vite-plugin-vuetify";
+import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
 export default defineNuxtConfig({
   modules: [
@@ -22,8 +22,13 @@ export default defineNuxtConfig({
     "@mdi/font/css/materialdesignicons.min.css",
   ],
   build: {
-      transpile: ["vuetify"],
+    transpile: ["vuetify"],
+  },
+  vite: {
+    vue: {
+      template: {
+        transformAssetUrls,
+      },
     },
-  vite: { ssr: { noExternal: ["vuetify"] } },
-
+  },
 });

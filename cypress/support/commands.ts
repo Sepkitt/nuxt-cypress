@@ -11,7 +11,8 @@
 //
 // @ts-ignore
 Cypress.Commands.add('getByData', (selector) => {
-  return cy.get(`[data-cy=${selector}]`)
+  return cy.get(`[data-cy=${selector}]`).should('exist')
+
 })
 //
 // -- This is a parent command --

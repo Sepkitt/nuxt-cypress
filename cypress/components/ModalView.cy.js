@@ -1,4 +1,4 @@
-import ModalView from '@/modal/ModalView';
+import ModalView from '../../components/ModalView';
 
 describe('<ModalView />', () => {
 

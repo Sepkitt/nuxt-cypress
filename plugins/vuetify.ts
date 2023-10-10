@@ -2,8 +2,9 @@
 import { createVuetify, ThemeDefinition } from "vuetify";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
-import { mdi } from "vuetify/iconsets/mdi";
+import 'vuetify/styles'
 
+import { mdi } from "vuetify/iconsets/mdi";
 import "@fontsource/roboto-mono";
 import "helvatica-neue-lt/index.css";
 import "@mdi/font/css/materialdesignicons.css";
@@ -27,10 +28,10 @@ const darkTheme: ThemeDefinition = {
     bright: "#E2E2E2",
     services: "#2F3A53",
     totals: '#8b909e',
-    change: '#B71C1C' 
+    change: '#B71C1C'
   }
 };
-
+// @ts-ignore
 export default defineNuxtPlugin((nuxtApp) => {
   const vuetify = createVuetify({
     components,
@@ -52,3 +53,4 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   nuxtApp.vueApp.use(vuetify);
 });
+

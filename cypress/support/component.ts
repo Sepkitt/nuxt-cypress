@@ -1,39 +1,48 @@
-// ***********************************************************
-// This example support/component.ts is processed and
-// loaded automatically before your test files.
-//
-// This is a great place to put global configuration and
-// behavior that modifies Cypress.
-//
-// You can change the location of this file or turn off
-// automatically serving support files with the
-// 'supportFile' configuration option.
-//
-// You can read more here:
-// https://on.cypress.io/configuration
-// ***********************************************************
-
-// Import commands.js using ES2015 syntax:
+import { createVuetify } from 'vuetify';
+import { mount } from "cypress/vue";
+import { VApp } from 'vuetify/components';
+import { h } from 'vue';
+import * as components from 'vuetify/components';
+import * as directives from 'vuetify/directives';
+import 'vuetify/styles';
 import './commands'
+type MountParams = Parameters<typeof mount>
+type OptionsParam = MountParams[1]
 
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
-
-import { mount } from 'cypress/vue'
-
-// Augment the Cypress namespace to include type definitions for
-// your custom command.
-// Alternatively, can be defined in cypress/support/component.d.ts
-// with a <reference path="./component" /> at the top of your spec.
 declare global {
   namespace Cypress {
     interface Chainable {
-      mount: typeof mount
+      /**
+       * Helper mount function for Vue Components
+       * @param component Vue Component or JSX Element to mount
+       * @param options Options passed to Vue Test Utils
+       */
+      mount(component: any, options?: OptionsParam): Chainable<any>
     }
   }
 }
+const vuetify = createVuetify({
+  components,
+  directives
+});
 
-Cypress.Commands.add('mount', mount)
+Cypress.Commands.add('mount', (component: any, options = {}) => {
+  options = options || {};
+  options.global = options.global || {};
+  options.global.stubs = options.global.stubs || {};
+  options.global.stubs['transition'] = false;
+  options.global.components = options.global.components || {};
+  options.global.plugins = options.global.plugins || [];
+  options.global.plugins.push({
+    install(app) {
+      app.use(vuetify);
+    }
+  });
 
-// Example use:
-// cy.mount(MyComponent)
+  // Define a function slot for the component
+  const slot = {
+    default: () => h(component, options),
+  };
+
+  return mount(VApp, { slots: slot, global: options.global });
+});

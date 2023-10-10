@@ -4,7 +4,10 @@
     "scripts": {
         "dev": "nuxt dev",
         "cypress": "cypress open",
-        "prettier": "prettier --check ."
+        "prettier": "prettier --check .",
+        "test:component": "cypress run --quiet --component"
+
+        
     },
     "devDependencies": {
         "cypress": "^13.2.0",
@@ -15,11 +18,13 @@
     "dependencies": {
         "@fontsource/roboto-mono": "^5.0.8",
         "@mdi/font": "^7.2.96",
+        "@nuxt/types": "^2.17.1",
+        "@types/webfontloader": "^1.6.35",
         "@vitejs/plugin-vue": "^4.3.4",
         "helvatica-neue-lt": "^1.0.1",
         "sass": "^1.68.0",
         "ts-node": "5.0.1",
         "vite-plugin-vuetify": "^1.0.2",
-        "vuetify": "^3.3.15"
+        "vuetify": "^3.1.10"
     }
 }
