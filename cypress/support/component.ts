@@ -1,11 +1,9 @@
-import { createVuetify } from 'vuetify';
 import { mount } from "cypress/vue";
 import { VApp } from 'vuetify/components';
 import { h } from 'vue';
-import * as components from 'vuetify/components';
-import * as directives from 'vuetify/directives';
+
 import 'vuetify/styles';
-import './commands'
+
 type MountParams = Parameters<typeof mount>
 type OptionsParam = MountParams[1]
 
@@ -21,10 +19,7 @@ declare global {
     }
   }
 }
-const vuetify = createVuetify({
-  components,
-  directives
-});
+import vuetify from './plugins/vuetify'
 
 Cypress.Commands.add('mount', (component: any, options = {}) => {
   options = options || {};

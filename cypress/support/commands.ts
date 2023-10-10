@@ -11,7 +11,7 @@
 //
 // @ts-ignore
 Cypress.Commands.add('getByData', (selector) => {
-  return cy.get(`[data-cy=${selector}]`).should('exist')
+  return cy.get(`[data-cy=${selector}]`)
 
 })
 //

@@ -21,6 +21,7 @@
             <v-btn data-cy="COUNTER_INCREASE" @click="increment">Increment</v-btn>
             <v-btn data-cy="COUNTER_DECREASE" @click="decrement">Decrement</v-btn>
           </v-card-actions>
+          <div v-for="i in 5">hello</div>
         </v-card>
       </v-col>
     </v-row>

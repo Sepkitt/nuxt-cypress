@@ -2,10 +2,17 @@
 import path from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import vuetify from "vite-plugin-vuetify";
+// import vuetify from "vite-plugin-vuetify";
 
 export default defineConfig({
-
+  //@ts-ignore
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    deps: {
+      inline: ['vuetify'],
+    },
+  },
   plugins: [
     vue({
       template: {
@@ -14,7 +21,7 @@ export default defineConfig({
         },
       },
     }),
-    vuetify({ autoImport: true })],
+],
   resolve: {
     alias: {
       '@/': `${path.resolve(__dirname, 'src')}/`
